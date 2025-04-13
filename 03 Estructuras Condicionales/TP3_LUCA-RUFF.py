@@ -1,12 +1,112 @@
-from datetime import date, datetime
-Y = 2020 # año bisiesto arbitrario, por si la fecha es un 29 de febrero
-estaciones = [('invierno', date(Y,  1,  1),  date(Y,  3, 20)),
-              ('primavera', date(Y,  3, 21),  date(Y,  6, 20)),
-              ('verano', date(Y,  6, 21),  date(Y,  9, 22)),
-              ('otoño', date(Y,  9, 23),  date(Y, 12, 20)),
-              ('invierno', date(Y, 12, 21),  date(Y, 12, 31))]
+# Actividad 1
+edad = int(input(f"Ingrese su edad: "))
+if edad >= 18:
+        print(f"Es mayor de edad")
+else: print("Es menor de edad")
 
-def get_season(fecha):
-    for estacion, inicio, fin in estaciones:
-      if inicio <= fecha <= fin:
-        return estacion
+# Actividad 2
+nota = float(input(f"Ingrese su nota: "))
+if nota >= 6:
+    print(f"Aprobado")
+else: print("Desaprobado")
+
+# Actividad 3
+numero = int(input(f"Ingrese un numero"))
+if numero%2==0:
+    print(f"Ha ingresado un número par")
+else: print(f"Por favor, ingrese un número par")
+
+# Actividad 4
+edad = int(input("Ingrese su edad"))
+if edad < 12:
+    print("Es Niño/a")
+elif edad >= 12 and edad < 18:
+    print("Es Adolecente")
+elif edad >= 18 and edad < 30:
+    print("Es Adulto/a joven")
+elif edad >= 30:
+    print("Es Adulto/a")
+
+# Actividad 5
+contraseña = input("Ingrese una contraseña:")
+if len(contraseña) >=8 and len(contraseña) <=14:
+    print("Ha ingresado una contraseña correcta")
+else:
+    print("Por favor, ingrese una contraseña de entre 8 y 14 caracteres")
+
+# Actividad 6
+import random
+numeros_alternativos = [random.randint(1,100) for i in range(50)]
+print(f"Los numeros alternativos son: {numeros_alternativos}")
+#moda mediana y media
+from statistics import mode, median, mean
+print(f"La moda es {mode(numeros_alternativos)}")
+print(f"La mediana es {median(numeros_alternativos)}")
+print(f"La media es {mean(numeros_alternativos)}")
+if mean(numeros_alternativos) > median(numeros_alternativos) and median(numeros_alternativos) > mode(numeros_alternativos):
+    print("El Sesgo es positivo")
+elif mean(numeros_alternativos) < median(numeros_alternativos) and median(numeros_alternativos) < mode(numeros_alternativos):
+    print("El Sesgo es negativo")
+elif mean(numeros_alternativos) == median(numeros_alternativos) == mode(numeros_alternativos):
+    print("Sin sesgo")
+else: print("Intente de nuevo")
+
+#Actividad 7
+frase = input("Ingrese una frase o palabra: ").lower()
+if frase[len(frase)-1] == "a" or frase[len(frase)-1] == "e" or frase[len(frase)-1] == "i" or frase[len(frase)-1] == "o" or frase[len(frase)-1] == "u":
+    print(f"{frase}!")
+else: print(frase)
+
+#Actividad 8
+nombre = input("Ingrese su nombre: ")
+opcion = input("Elige una opcion\n1. Mayúsculas\n2. Minuscula\n3. Primera letra mayúscula\n Opcion:")
+if opcion == "1":
+    nombre_usuario = nombre.upper()
+elif opcion == "2":
+    nombre_usuario = nombre.lower()
+elif opcion == "3":
+    nombre_usuario = nombre.title()
+else: 
+    nombre_usuario = "Por favor, elija una de las opciones indicadas"
+print(nombre_usuario)
+
+#Actividad 9
+magnitud = float(input("Ingrese la magnitud del terremoto: "))
+if magnitud < 3:
+    print("Muy leve")
+elif magnitud >= 3 and magnitud < 4:
+    print("Leve")
+elif magnitud >= 4 and magnitud < 5:
+    print("Moderado")
+elif magnitud >= 5 and magnitud < 6:
+    print("Fuerte")
+elif magnitud >= 6 and magnitud < 7:
+    print("Muy fuerte")
+elif magnitud >= 7:
+    print("Extremo")
+else:
+    print("Error")
+
+#Actividad 10
+hemisferio = input("Ingrese el hemisferio donde se encuentra (Norte: \nN) o (Sur: \nS)").upper()
+mes = int(input("Ingrese el mes (1-12)"))
+dia = int(input("Ingrese un dia (1-31)"))
+if (mes == 12 and dia >= 21 and hemisferio == "N") or (mes == 1) or (mes == 2) or (mes == 3 and dia < 20):
+    estacion = "invierno"
+elif (mes == 12 and dia >= 21 and hemisferio == "S") or (mes == 1) or (mes == 2) or (mes == 3 and dia < 20):
+    estacion = "Verano"
+elif (mes == 3 and dia >= 21 and hemisferio == "N") or (mes == 4) or (mes == 5) or (mes == 6 and dia < 20):
+    estacion = "Primavera"
+elif (mes == 3 and dia >= 21 and hemisferio == "S") or (mes == 4) or (mes == 5) or (mes == 6 and dia < 20):
+    estacion = "Otoño"
+elif (mes == 6 and dia >= 21 and hemisferio == "N") or (mes == 7) or (mes == 8) or (mes == 9 and dia < 20):
+    estacion = "Verano"
+elif (mes == 6 and dia >= 21 and hemisferio == "S") or (mes == 7) or (mes == 8) or (mes == 9 and dia < 20):
+    estacion = "Invierno"
+elif (mes == 9 and dia >= 21 and hemisferio == "N") or (mes == 10) or (mes == 11) or (mes == 12 and dia < 20):
+    estacion = "Otoño"
+elif (mes == 9 and dia >= 21 and hemisferio == "S") or (mes == 10) or (mes == 11) or (mes == 12 and dia < 20):
+    estacion = "Primavera",
+else: 
+    estacion = "una fecha no valida, reintentar"
+print(f"Usted se encuentra en {estacion}")
