@@ -88,25 +88,26 @@ else:
     print("Error")
 
 #Actividad 10
-hemisferio = input("Ingrese el hemisferio donde se encuentra (Norte: \nN) o (Sur: \nS)").upper()
-mes = int(input("Ingrese el mes (1-12)"))
-dia = int(input("Ingrese un dia (1-31)"))
-if (mes == 12 and dia >= 21 and hemisferio == "N") or (mes == 1) or (mes == 2) or (mes == 3 and dia < 20):
+hemisferio = input("Ingrese el hemisferio donde se encuentra (Norte: N) o (Sur: S): ").upper()
+mes = int(input("Ingrese el mes (1-12): "))
+dia = int(input("Ingrese un día (1-31): "))
+if (hemisferio == "N" and ((mes == 12 and dia >= 21) or mes in [1, 2] or (mes == 3 and dia < 20))):
     estacion = "invierno"
-elif (mes == 12 and dia >= 21 and hemisferio == "S") or (mes == 1) or (mes == 2) or (mes == 3 and dia < 20):
-    estacion = "Verano"
-elif (mes == 3 and dia >= 21 and hemisferio == "N") or (mes == 4) or (mes == 5) or (mes == 6 and dia < 20):
-    estacion = "Primavera"
-elif (mes == 3 and dia >= 21 and hemisferio == "S") or (mes == 4) or (mes == 5) or (mes == 6 and dia < 20):
-    estacion = "Otoño"
-elif (mes == 6 and dia >= 21 and hemisferio == "N") or (mes == 7) or (mes == 8) or (mes == 9 and dia < 20):
-    estacion = "Verano"
-elif (mes == 6 and dia >= 21 and hemisferio == "S") or (mes == 7) or (mes == 8) or (mes == 9 and dia < 20):
-    estacion = "Invierno"
-elif (mes == 9 and dia >= 21 and hemisferio == "N") or (mes == 10) or (mes == 11) or (mes == 12 and dia < 20):
-    estacion = "Otoño"
-elif (mes == 9 and dia >= 21 and hemisferio == "S") or (mes == 10) or (mes == 11) or (mes == 12 and dia < 20):
-    estacion = "Primavera",
-else: 
-    estacion = "una fecha no valida, reintentar"
-print(f"Usted se encuentra en {estacion}")
+elif (hemisferio == "S" and ((mes == 12 and dia >= 21) or mes in [1, 2] or (mes == 3 and dia < 20))):
+    estacion = "verano"
+elif (hemisferio == "N" and ((mes == 3 and dia >= 21) or mes in [4, 5] or (mes == 6 and dia < 21))):
+    estacion = "primavera"
+elif (hemisferio == "S" and ((mes == 3 and dia >= 21) or mes in [4, 5] or (mes == 6 and dia < 21))):
+    estacion = "otoño"
+elif (hemisferio == "N" and ((mes == 6 and dia >= 21) or mes in [7, 8] or (mes == 9 and dia < 21))):
+    estacion = "verano"
+elif (hemisferio == "S" and ((mes == 6 and dia >= 21) or mes in [7, 8] or (mes == 9 and dia < 21))):
+    estacion = "invierno"
+elif (hemisferio == "N" and ((mes == 9 and dia >= 21) or mes in [10, 11] or (mes == 12 and dia < 21))):
+    estacion = "otoño"
+elif (hemisferio == "S" and ((mes == 9 and dia >= 21) or mes in [10, 11] or (mes == 12 and dia < 21))):
+    estacion = "primavera"
+else:
+    estacion = "una fecha no válida, reintentar"
+print(f"Usted se encuentra en {estacion}.")
+
